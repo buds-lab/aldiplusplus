@@ -39,6 +39,10 @@ The manually labeled outliers, from the top winning teams, are extracted from th
 - [rank-1 winning team](https://github.com/buds-lab/ashrae-great-energy-predictor-3-solution-analysis/tree/master/solutions/rank-1/input)
 and are stored in `data/outliers`
 
+## Discord detection using ALDI++
+
+@TODO: Till can you fill out this part? which files to use and in what order? Thanks!
+
 ## Benchmarking models
 
 - Statistical model (2-Standard deviation)
