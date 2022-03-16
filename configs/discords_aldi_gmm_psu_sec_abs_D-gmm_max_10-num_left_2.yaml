@@ -1,0 +1,9 @@
+# algorithm
+algorithm: 'discords_aldi_gmm_psu_sec_abs_D-gmm_max_10-num_left_2'
+discord_file: 'discords_aldi_gmm_psu_sec_abs_D-gmm_max_10-num_left_2.csv'
+seed: 13
+
+# data
+data_location: 'data/ashrae-energy-prediction'
+discord_location: 'data/pred_discord'
+output_location: 'data/preprocessed'

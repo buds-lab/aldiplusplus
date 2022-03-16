@@ -1,0 +1,10 @@
+# algorithm
+algorithm: 'baseline'
+discord_file: 'bad_meter_readings.csv'
+seed: 13
+
+# data
+data_location: 'data/ashrae-energy-prediction'
+discord_location: 'data/outliers'
+output_location: 'data/preprocessed'
+
