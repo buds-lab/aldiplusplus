@@ -41,7 +41,7 @@ and are stored in `data/outliers`
 
 ## Discord detection using ALDI++
 
-@TODO: Till can you fill out this part? which files to use and in what order? Thanks!
+@TODO
 
 ## Benchmarking models
 
