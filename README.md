@@ -36,7 +36,7 @@ And specifically, the subset used for the [Great Energy Predictor III (GEPIII)](
 Download the datasets from [`building-data-genome-project-2/data/meters/kaggle`](https://github.com/buds-lab/building-data-genome-project-2/tree/master/data/meters/kaggle) into `data/`.
 
 The manually labeled outliers, from the top winning teams, are extracted from the following resources:
-- [rank-1 winning team](https://github.com/buds-lab/ashrae-great-energy-predictor-3-solution-analysis/tree/master/solutions/rank-1/input)
+- [rank-1 winning team](https://github.com/buds-lab/ashrae-great-energy-predictor-3-solution-analysis/blob/master/solutions/rank-1/input/bad_meter_readings.zip)
 and are stored in `data/outliers`
 
 ## Discord detection using ALDI++
