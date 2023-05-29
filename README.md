@@ -1,7 +1,9 @@
-# ALDI++: Automatic and parameter-less discorddetection for daily load energy profiles
+# ALDI++: Automatic and parameter-less discord detection for daily load energy profiles
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)  ![Python Version](https://upload.wikimedia.org/wikipedia/commons/3/34/Blue_Python_3.6_Shield_Badge.svg) [![arXiv](https://img.shields.io/badge/arXiv-2203.06618-b31b1b.svg)](https://arxiv.org/abs/2203.06618)
 
 Initial codebase: https://github.com/intelligent-environments-lab/ALDI
+
+This repository is the official implementation of [ALDI++: Automatic and parameter-less discord detection for daily load energy profiles](https://www.sciencedirect.com/science/article/pii/S0378778822002675?via%3Dihub).
 
 ## Requirements
 
@@ -33,21 +35,19 @@ We chose the following publicly available:
 
 And specifically, the subset used for the [Great Energy Predictor III (GEPIII)](https://www.kaggle.com/c/ashrae-energy-prediction) machine learning competition.
 
-Download the datasets from [`building-data-genome-project-2/data/meters/kaggle`](https://github.com/buds-lab/building-data-genome-project-2/tree/master/data/meters/kaggle) into `data/`.
+Download the datasets from [the competition's data tab](https://www.kaggle.com/competitions/ashrae-energy-prediction/data) into `data/`.
 
 The manually labeled outliers, from the top winning teams, are extracted from the following resources:
 - [rank-1 winning team](https://github.com/buds-lab/ashrae-great-energy-predictor-3-solution-analysis/blob/master/solutions/rank-1/input/bad_meter_readings.zip)
 and are stored in `data/outliers`
 
-## Discord detection using ALDI++
-
-@TODO
+Then, run the notebook `bad_meter_preprocessing.ipynb` to create the labeled train set.
 
 ## Benchmarking models
 
 - Statistical model (2-Standard deviation)
 - [ALDI](https://doi.org/10.1016/j.enbuild.2020.109892)
-- Variational Auto-encoder
+- Variational Auto-encoder (VAE)
 - ALDI++ (our method)
 
 ## Evaluation
@@ -59,9 +59,7 @@ Confusion matrices and ROC-AUC metrics are evaluated using the following noteboo
 
 where `<model>` is one of the benchmarked models: `2sd`, `vae`, `aldi`, `aldipp`
 
-## Energy Forecasting
-
-### Settings and parameters
+### Energy Forecasting
 
 To specify different settings and parameters pertinent to the data pre-processing, training, and evaluation, modify the files inside the `configs/` folder as a `yaml` file. The pipeline used for energy forecasting is based on the [Rank-1 team's solution](https://github.com/buds-lab/ashrae-great-energy-predictor-3-solution-analysis/tree/master/solutions/rank-1).
 
@@ -79,7 +77,7 @@ It is assumed, however, that at least the following folder structure exists:
 ...
 ```
 
-### Training pipeline
+#### Training pipeline
 
 Each `yaml` file inside `configs/` holds the configuration of different discord detection algorithms. Thus, in order to execute a strip-down version of the Rank-1 team's solution the following line needs to be executed:
 
@@ -89,6 +87,7 @@ Each `yaml` file inside `configs/` holds the configuration of different discord 
 
 ## Results
 
+Dictionaries with the computed results can be found in `results/`.
 Our model achieves the following forecasting performance (`RMSLE`) and computation time (min) on the GEPIII dataset, the results of the original competition winning team, a simple statistical approach, a commonly used deep learning approch, and the original ALDI are shown too:
 
 |   Discords labeled by   |  RMSLE | Computation time (min) |
@@ -98,7 +97,3 @@ Our model achieves the following forecasting performance (`RMSLE`) and computati
 | ALDI                    |  2.834 |            40          |
 | VAE                     |  2.829 |            32          |
 | **ALDI++**              |  2.665 |             8          |
-
-## Contributing
-
-MIT License
